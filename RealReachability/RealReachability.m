@@ -174,8 +174,8 @@ NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChange
          NSInteger rtn = [strongSelf.engine receiveInput:inputDic];
          if (rtn == 0) // state changed & state available, post notification.
          {
-             if ([strongSelf.engine isCurrentStateAvailable])
-             {
+             //if ([strongSelf.engine isCurrentStateAvailable])
+             //{
                  strongSelf.previousStatus = status;
                  // this makes sure the change notification happens on the MAIN THREAD
                  __weak __typeof(strongSelf)deepWeakSelf = strongSelf;
@@ -184,7 +184,7 @@ NSString *const kRealReachabilityChangedNotification = @"kRealReachabilityChange
                      [[NSNotificationCenter defaultCenter] postNotificationName:kRealReachabilityChangedNotification
                                                                          object:deepStrongSelf];
                  });
-             }
+             //}
          }
          
          if (asyncHandler != nil)
